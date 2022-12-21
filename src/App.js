@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
+import { ViewAllRecipies } from './components/ViewAllRecipies';
 
 class App extends React.Component {
   render() {
@@ -17,13 +18,12 @@ class App extends React.Component {
                 <Nav.Link href='/AddRecipie'>Add</Nav.Link>
                 <Nav.Link href='/EditRecipie'>Edit</Nav.Link>
                 <Nav.Link href='/DeleteRecipie'>Delete</Nav.Link>
-
-
-
-
               </Nav>
             </Container>
           </Navbar>
+          <Routes>
+            <Route path='/ViewAllRecipies' element={<ViewAllRecipies></ViewAllRecipies>}></Route>
+          </Routes>
         </div>
       </Router>
     )
