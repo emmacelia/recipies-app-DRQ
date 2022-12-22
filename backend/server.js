@@ -6,6 +6,9 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../build')));
+app.use('/static', express.static(path.join(__dirname, 'build//static')));
 
 const cors = require("cors");
 app.use(cors());
@@ -88,6 +91,10 @@ app.delete('/api/Recipie/:id', (req, res) => {
         res.send(data);
     })
 })
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../build/index.html'));
+});
 
 
 app.listen(port, () => {
