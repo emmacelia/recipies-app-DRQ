@@ -44,10 +44,9 @@ export function EditRecipie() {
 
     return (
         <div>
-            <h3>Edit component</h3>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>Edit Recipue Title: </label>
+                    <label>Edit Recipie Title: </label>
                     <input type="text"
                         className="form-control"
                         value={title}

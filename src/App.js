@@ -5,6 +5,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap'
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
 import { ViewAllRecipies } from './components/ViewAllRecipies';
 import { EditRecipie } from './components/EditRecipie';
+import {AddRecipie} from './components/AddRecipie';
 
 class App extends React.Component {
   render() {
@@ -25,6 +26,7 @@ class App extends React.Component {
           <Routes>
             <Route path='/ViewAllRecipies' element={<ViewAllRecipies></ViewAllRecipies>}></Route>
             <Route path='/EditRecipie/:id' element={<EditRecipie></EditRecipie>}></Route>
+            <Route path='/AddRecipie' element={<AddRecipie></AddRecipie>}></Route>
 
           </Routes>
         </div>
