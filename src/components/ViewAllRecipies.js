@@ -6,8 +6,9 @@ export class ViewAllRecipies extends React.Component {
     componentDidMount() {
         axios.get('http://localhost:4000/api/Recipie')
             .then(response => {
-              //  console.log(response.data)
+                //  console.log(response.data)
                 this.setState({ Recipie: response.data });
+
             })
             .catch(function (error) {
                 console.log(error);
@@ -22,6 +23,7 @@ export class ViewAllRecipies extends React.Component {
                 <h3></h3>
                 <Recipie Recipie={this.state.Recipie}></Recipie>
             </div>
+
         );
     }
 

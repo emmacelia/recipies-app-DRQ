@@ -52,21 +52,37 @@ app.post('/api/recipie', (req, res) => {
     res.send('Data Recieved');
 })
 
-RecipieModel.create({
-    title: "Mashed Potato Soup",
-    time: "4 hours",
-    difficulty: "very difficult",
-    ingredients: "potatoes",
-    temp: "100 degrees",
-    steps: "potatoes"
-})
-
 app.get("/api/Recipie", (req, res) => {
     RecipieModel.find((error, data) => {
         res.json(data);
     })
 
 })
+
+app.get('/api/Recipie/:id', (req, res, next) => {
+    console.log(req.params.id);
+    RecipieModel.findById(req.params.id,
+        function (err, data) {
+            res.json(data);
+        });
+})
+app.put('/api/Recipie/:id', function (req, res) {
+    console.log("Update Recipie " + req.params.id);
+    console.log(req.body);
+    console.log(req.body.title);
+    console.log(req.body.time);
+    console.log(req.body.difficulty);
+    console.log(req.body.ingredients);
+    console.log(req.body.temp);
+    console.log(req.body.steps);
+
+    RecipieModel.findByIdAndUpdate(req.params.id, req.body, { new: true },
+        function (err, data) {
+            res.send(data);
+        })
+})
+
+
 
 app.listen(port, () => {
     console.log(`listening on port ${port}`)

@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
 import { ViewAllRecipies } from './components/ViewAllRecipies';
+import { EditRecipie } from './components/EditRecipie';
 
 class App extends React.Component {
   render() {
@@ -23,6 +24,8 @@ class App extends React.Component {
           </Navbar>
           <Routes>
             <Route path='/ViewAllRecipies' element={<ViewAllRecipies></ViewAllRecipies>}></Route>
+            <Route path='/EditRecipie/:id' element={<EditRecipie></EditRecipie>}></Route>
+
           </Routes>
         </div>
       </Router>
