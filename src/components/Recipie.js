@@ -4,6 +4,8 @@ import { Recipieitem } from "./Recipieitem";
 export class Recipie extends React.Component {
     render() {
         return this.props.Recipie.map(
+
+            //returns the values
             (Recipie) => {
                 return <Recipieitem Recipie={Recipie} key={Recipie._id}
                     Reload={this.props.Reload}></Recipieitem>

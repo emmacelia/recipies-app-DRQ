@@ -5,6 +5,8 @@ export class AddRecipie extends React.Component {
 
     constructor() {
         super();
+
+        //functions to change the information
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onChangeRecipieTitle = this.onChangeRecipieTitle.bind(this);
         this.onChangeRecipieTime = this.onChangeRecipieTime.bind(this);
@@ -13,6 +15,7 @@ export class AddRecipie extends React.Component {
         this.onChangeRecipieTemp = this.onChangeRecipieTemp.bind(this);
         this.onChangeRecipieSteps = this.onChangeRecipieSteps.bind(this);
 
+        //set the state
         this.state = {
             title: '',
             time: '',
@@ -23,6 +26,7 @@ export class AddRecipie extends React.Component {
         }
     }
 
+    //button click
     handleSubmit(e) {
         e.preventDefault();
         console.log(`Button clicked 
@@ -35,6 +39,7 @@ export class AddRecipie extends React.Component {
         
         `);
 
+        //set the recipie title 
         const Recipie = {
             title: this.state.title,
             time: this.state.time,
@@ -44,10 +49,12 @@ export class AddRecipie extends React.Component {
             steps: this.state.steps
         }
 
+        //post method for axious
         axios.post('http://localhost:4000/api/recipie', Recipie)
             .then()
             .catch();
 
+        //set state 
         this.setState({
             title: '',
             time: '',
@@ -57,7 +64,7 @@ export class AddRecipie extends React.Component {
             steps: ''
         })
     }
-
+    //line 67 to 100 allows for the data to be added to the database
     onChangeRecipieTitle(e) {
         this.setState({
             title: e.target.value
@@ -94,7 +101,7 @@ export class AddRecipie extends React.Component {
     render() {
         return (
             <div>
-
+                //Form that allows us to add information to the database
                 <form onSubmit={this.handleSubmit} >
                     <card>
 
@@ -155,7 +162,7 @@ export class AddRecipie extends React.Component {
                         </div>
 
 
-
+                        //Add button
                         <input type="submit" value="Add Recipie" color="red" />
 
                     </card>

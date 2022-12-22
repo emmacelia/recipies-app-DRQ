@@ -5,6 +5,8 @@ export class Inspiration extends Component {
 
         return <div>
 
+            //the following code displays image button linking to recipie websites
+
             <em> <h1> Recipie Inspiration </h1></em>
             <br>
             </br>

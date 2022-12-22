@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export function EditRecipie() {
+
     let { id } = useParams();
+
+    //setters for each value
     const [title, setTitle] = useState('');
     const [time, setTime] = useState('');
     const [difficulty, setDifficulty] = useState('');
@@ -11,6 +14,7 @@ export function EditRecipie() {
     const [temp, setTemp] = useState('');
     const [steps, setSteps] = useState('');
 
+    //change the url to the id 
     useEffect(() => {
         axios.get('http://localhost:4000/api/Recipie/' + id)
             .then((response) => {
@@ -25,9 +29,11 @@ export function EditRecipie() {
             .catch()
     }, []);
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        //sets an edit 
         const EditRecipie = {
             title: title,
             time: time,
@@ -42,6 +48,7 @@ export function EditRecipie() {
             .catch();
     }
 
+    //form that is populated and allows us to edit the form
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -97,6 +104,7 @@ export function EditRecipie() {
                     />
                 </div>
 
+                //button used to edit 
                 <input type="submit" value="Edit Recipie"></input>
             </form>
         </div>

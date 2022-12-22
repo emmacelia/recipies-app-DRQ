@@ -1,8 +1,9 @@
 const express = require('express')
 const app = express()
 const port = 4000
-var bodyParser = require('body-parser')
 
+//Declares body parser
+var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -10,6 +11,7 @@ const path = require('path');
 app.use(express.static(path.join(__dirname, '../build')));
 app.use('/static', express.static(path.join(__dirname, 'build//static')));
 
+//uses cors
 const cors = require("cors");
 app.use(cors());
 app.use(function (req, res, next) {
@@ -19,6 +21,7 @@ app.use(function (req, res, next) {
     next();
 })
 
+//connection to mongo database
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', true)
 main().catch(err => console.log(err));
@@ -28,7 +31,7 @@ async function main() {
     // use `await mongoose.connect('mongodb://user:password@localhost:27017/test');` if your database has auth enabled
 }
 
-
+//create recipie schema
 const RecipieSchema = new mongoose.Schema({
     title: String,
     time: String,
@@ -37,12 +40,14 @@ const RecipieSchema = new mongoose.Schema({
     temp: String,
     steps: String
 });
-
+//creates recipie model
 const RecipieModel = mongoose.model('recipie', RecipieSchema);
 
+//posts to the recipie page 
 app.post('/api/recipie', (req, res) => {
     console.log(req.body);
 
+    //creates a recipie to display
     RecipieModel.create({
         title: req.body.title,
         time: req.body.time,
@@ -55,6 +60,7 @@ app.post('/api/recipie', (req, res) => {
     res.send('Data Recieved');
 })
 
+//Gets The recipies model 
 app.get("/api/Recipie", (req, res) => {
     RecipieModel.find((error, data) => {
         res.json(data);
@@ -62,6 +68,7 @@ app.get("/api/Recipie", (req, res) => {
 
 })
 
+//display based on id 
 app.get('/api/Recipie/:id', (req, res, next) => {
     console.log(req.params.id);
     RecipieModel.findById(req.params.id,
@@ -69,6 +76,8 @@ app.get('/api/Recipie/:id', (req, res, next) => {
             res.json(data);
         });
 })
+
+//display the information to be updated
 app.put('/api/Recipie/:id', function (req, res) {
     console.log("Update Recipie " + req.params.id);
     console.log(req.body);
@@ -79,12 +88,14 @@ app.put('/api/Recipie/:id', function (req, res) {
     console.log(req.body.temp);
     console.log(req.body.steps);
 
+    //update the recipie model
     RecipieModel.findByIdAndUpdate(req.params.id, req.body, { new: true },
         function (err, data) {
             res.send(data);
         })
 })
 
+////delete the recipie from the database
 app.delete('/api/Recipie/:id', (req, res) => {
     console.log('Deleting: ' + req.params.id);
     RecipieModel.findByIdAndDelete({ _id: req.params.id }, (error, data) => {
@@ -92,6 +103,7 @@ app.delete('/api/Recipie/:id', (req, res) => {
     })
 })
 
+//builds project 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/../build/index.html'));
 });

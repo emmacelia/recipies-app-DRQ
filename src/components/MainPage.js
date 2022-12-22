@@ -10,8 +10,8 @@ export class MainPage extends Component {
 
             <br></br>
 
+            //creates carosel
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
                 <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -24,21 +24,19 @@ export class MainPage extends Component {
                 <div class="carousel-inner">
                     <div class="item active">
                     </div>
-
                     <div class="item">
-
-
                     </div>
-
-
                 </div>
 
+                //creates the first image
                 <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                     <img src="https://tse3.mm.bing.net/th?id=OIP.ijYgX7frE05tB-PxIjAcsQHaE8&pid=Api&P=0" alt="Italian Trulli"></img>
 
                     <span class="sr-only"></span>
                 </a>
+
+                //creates the second image
                 <a class="right carousel-control" href="#myCarousel" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                     <img src=" https://tse1.mm.bing.net/th?id=OIP.ONeiDABCq58kwVK7IMbDtgHaE8&pid=Api&P=0" alt="Italian Trulli"></img>
@@ -46,6 +44,7 @@ export class MainPage extends Component {
                     <span class="sr-only"></span>
                 </a>
 
+                //creates the third image
                 <a class="right carousel-control" href="#myCarousel" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                     <img src=" https://tse1.mm.bing.net/th?id=OIP.de_d32w-aqOIbl7Msqq1dgHaE8&pid=Api&P=0" alt="Italian Trulli"></img>

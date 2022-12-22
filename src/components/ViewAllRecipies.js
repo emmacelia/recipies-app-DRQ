@@ -9,6 +9,7 @@ constructor(){
     this.componentDidMount= this.componentDidMount.bind(this);
 }
 
+    //changes the stte of the recipie
     componentDidMount() {
         axios.get('http://localhost:4000/api/Recipie')
             .then(response => {
@@ -26,6 +27,7 @@ constructor(){
         return (
             <div>
                 <h3></h3>
+                //displays the recipie info
                 <Recipie Recipie={this.state.Recipie} Reload={this.componentDidMount}></Recipie>
 
                 
