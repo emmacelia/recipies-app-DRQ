@@ -82,6 +82,12 @@ app.put('/api/Recipie/:id', function (req, res) {
         })
 })
 
+app.delete('/api/Recipie/:id', (req, res) => {
+    console.log('Deleting: ' + req.params.id);
+    RecipieModel.findByIdAndDelete({ _id: req.params.id }, (error, data) => {
+        res.send(data);
+    })
+})
 
 
 app.listen(port, () => {

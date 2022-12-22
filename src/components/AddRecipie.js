@@ -94,65 +94,82 @@ export class AddRecipie extends React.Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label>Add Recipie Title: </label>
-                        <input type="text"
-                            className="form-control"
-                            value={this.state.title}
-                            onChange={this.onChangeRecipieTitle}
-                        />
-                    </div>
 
-                    <div className="form-group">
-                        <label>Add Recipie Time: </label>
-                        <input type="text"
-                            className="form-control"
-                            value={this.state.time}
-                            onChange={this.onChangeRecipieTime}
-                        />
-                    </div>
+                <form onSubmit={this.handleSubmit} >
+                    <card>
 
-                    <div className="form-group">
-                        <label>Add Recipie Difficulty: </label>
-                        <input type="text"
-                            className="form-control"
-                            value={this.state.difficulty}
-                            onChange={this.onChangeRecipieDifficulty}
-                        />
-                    </div>
+                        <div className="form-group">
+                            <em>  <label  >Add Recipie Title: </label>  </em>
+                            <input type="text"
+                                className="form-control"
+                                value={this.state.title}
+                                onChange={this.onChangeRecipieTitle}
+                            />
+                        </div>
 
+                        <div className="form-group">
+                            <em>  <label>Add Recipie Time: </label> </em>
+                            <input type="text"
+                                className="form-control"
+                                value={this.state.time}
+                                onChange={this.onChangeRecipieTime}
+                            />
+                        </div>
 
-                    <div className="form-group">
-                        <label>Add Recipie ingridents: </label>
-                        <input type="text"
-                            className="form-control"
-                            value={this.state.ingridents}
-                            onChange={this.onChangeRecipieIngridents}
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label>Add Recipie Temp: </label>
-                        <input type="text"
-                            className="form-control"
-                            value={this.state.temp}
-                            onChange={this.onChangeRecipieTemp}
-                        />
-                    </div>
+                        <div className="form-group">
+                            <em> <label>Add Recipie Difficulty: </label> </em>
+                            <input type="text"
+                                className="form-control"
+                                value={this.state.difficulty}
+                                onChange={this.onChangeRecipieDifficulty}
+                            />
+                        </div>
 
 
-                    <div className="form-group">
-                        <label>Add Recipie steps: </label>
-                        <input type="text"
-                            className="form-control"
-                            value={this.state.steps}
-                            onChange={this.onChangeRecipieSteps}
-                        />
-                    </div>
-                    <input type="submit" value="Add Recipie" />
+                        <div className="form-group">
+                            <em> <label>Add Recipie ingridents: </label> </em>
+                            <input type="text"
+                                className="form-control"
+                                value={this.state.ingridents}
+                                onChange={this.onChangeRecipieIngridents}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <em> <label>Add Recipie Temp: </label> </em>
+                            <input type="text"
+                                className="form-control"
+                                value={this.state.temp}
+                                onChange={this.onChangeRecipieTemp}
+                            />
+                        </div>
+
+
+                        <div className="form-group">
+                            <em><label>Add Recipie steps: </label> </em>
+                            <input type="text"
+                                className="form-control"
+                                value={this.state.steps}
+                                onChange={this.onChangeRecipieSteps}
+                            />
+                        </div>
+
+
+
+                        <input type="submit" value="Add Recipie" color="red" />
+
+                    </card>
+
+
+
+
+
+
                 </form>
             </div>
+
+
+
 
         );
     }

@@ -5,7 +5,8 @@ export class Recipie extends React.Component {
     render() {
         return this.props.Recipie.map(
             (Recipie) => {
-                return <Recipieitem Recipie={Recipie} key={Recipie._id}></Recipieitem>
+                return <Recipieitem Recipie={Recipie} key={Recipie._id}
+                    Reload={this.props.Reload}></Recipieitem>
             }
         );
     }
